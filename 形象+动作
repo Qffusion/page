@@ -1,0 +1,81 @@
+形象+动作
+
+
+首图
+
+bbox运动的数据集
+
+
+dragvideo
+
+pose + 运镜
+
+short
+从数据出发
+
+want some motion
+
+
+关于如何对齐layout和图像域：
+思路1：我们有两个baseline（A和B）:
+A. 直接concat
+B. layout表征与全图做cross attention
+C. layout表征与部分图做cross attention，且这部分必须要加强表示。
+参照FastComposer: Tuning-Free Multi-Subject Image Generation with Localized Attention（text在cross attnetion map上显示出的物体，就把它用segmentation map增强表示。）
+那我们能不能在CA的热力图上搞一下增强。
+
+思路2:设计一个contrastive loss去做域对齐
+参照文章 https://arxiv.org/pdf/2306.17115.pdf
+
+
+在mask交换过程中，当source和target的脸型差别很大时，获取完美的mask重组结果就比较困难，例如，当source脸瘦而target脸胖，有一部分脸部mask不匹配的区域需要用背景或者脖子来代替。
+本文不从设计自适应算法去获取完美的重组mask出发，而是提出训练一个face inpainting 网络作为后处理。该网络以那些mask不匹配的区域为指导，去生成满足source脸型的换脸结果。
+
+During the process of mask exchange, it is difficult to obtain a perfect recomposed mask for the swapped face when the face shapes of source and target are very different. For example, when source's face is thin and target's face is fat, some mismatched facial mask areas need to be replaced by background, neck, or hair, etc.
+In this paper, instead of designing an adaptive algorithm to obtain the perfect recomposed mask, we propose to train a face inpainting network as post-processing. The network is guided by those mismatched mask areas, and generates swapped results that meet the face shape of source.
+
+
+
+To solve the mismatch area that may occur in the process of mask exchange, we additionally designed a face inpainting network for post processing for E4S.
+
+In order to make the face change result have natural illumination, 
+
+
+we redefine illumination transferring as a problem of recovering color from gray-scale images, and train a re-colorer network to make the swapped result obtain natural illumination as the target image.
+
+The components that must be exchanged are: eyebrows, eyes, nose, mouth, lips, face, skin, neck, and ears.
+
+
+python3 /home/limaomao/Lab/layout-dm/codes/eval.py --result_dir /home/limaomao/Lab/layout-dm/constrain_result/layoutdm/condition_c/unconditional_temperature_1.0_name_random_num_timesteps_100 --fid_weight_dir /home/limaomao/Lab/layout-dm/download/fid_weights/FIDNetV3
+
+
+python3 /home/limaomao/Lab/layout-dm/codes/eval.py --result_dir /home/limaomao/Lab/layout-dm/constrain_result/layoutdm/condition_c/c_temperature_1.0_name_random_num_timesteps_100 --fid_weight_dir /home/limaomao/Lab/layout-dm/download/fid_weights/FIDNetV3
+
+batch = batch.to(device)
+AttributeError: 'dict' object has no attribute 'to'
+
+reschedule the interview
+
+notification
+
+python3 /home/limaomao/Lab/layout-dm/codes/src/trainer/trainer/test.py cond=unconditional dataset_dir=/cto_studio/vistring/limaomao/dataset/tianchi 
+job_dir=/home/limaomao/Lab/layout-dm/tmp/jobs/tianchi_constrained_G_L_202305181410_A100_BS64 \
+result_dir=/home/limaomao/Lab/layout-dm/7-24_result/
+
+
+
+git push https://github.com/lmm077/diffusion-stem-inv/tree/master <branch>
+
+git  clone ssh://https://github.com/lmm077/diffusion-stem-inv
+
+
+
+
+
+
+
+
+
+
+
+
