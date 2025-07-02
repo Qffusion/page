@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [['$','$'], ['\\(','\\)']],
+          processEscapes: true
+      }
+  });
+    </script>
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="STEM-Inv">
+  <meta property="og:title" content="STEM-Inv"/>
+  <meta property="og:description" content="STEM inversion is a efficient video inversion method for text-guided video editing"/>
+  <meta property="og:url" content="https://stem-inv.github.io/page/"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/STEM_DDIM_inv.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  <title>STEM-Inv</title>
+  <link rel="icon" type="image/x-icon" href="static/images/q.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">A Video is Worth 256 Bases: Spatial-Temporal Expectation-Maximization Inversion for Zero-Shot Video Editing</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://scholar.google.com.hk/citations?hl=zh-CN&user=ym_t6QYAAAAJ" target="_blank">Maomao Li<sup>1,2</sup></a><sup></sup>,</span>
+                <span class="author-block">
+                  <a href="https://yu-li.github.io/" target="_blank">Yu Li<sup>2</sup></a><sup></sup>,</span>
+                  <span class="author-block">
+                    <a href="\https://tianyu-yang.com" target="_blank">Tianyu Yang<sup>2</sup></a><sup></sup>,</
+                  </span>
+                  <span class="author-block">
+                    <a href="https://scholar.google.com/citations?user=B1Z1vTMAAAAJ&hl=zh-CN" target="_blank">Yunfei Liu<sup>2</sup></a><sup></sup>,</
+                  </span> 
+                   <span class="author-block">
+                    Dongxu Yue<sup>3,2</sup><sup></sup>,</
+                  </span>  
+                   <span class="author-block">
+                    <a href="https://scholar.google.com.hk/citations?hl=zh-CN&user=t4et8FEAAAAJ" target="_blank">Zhihui Lin<sup>4</sup></a><sup></sup>,</
+                  </span>   
+                   <span class="author-block">
+                    <a href="https://scholar.google.com/citations?user=7Hdu5k4AAAAJ&hl=zh-CN" target="_blank">Dong Xu<sup>1</sup></a>
+                  </span>                                 
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"><sup>1</sup>The University of HongKong
+                    &nbsp;&nbsp;
+                    <sup>2</sup>International Digital Economy Academy (IDEA)
+                    <br>
+                    <sup>3</sup>Peking University
+                    &nbsp;&nbsp;
+                    <sup>4</sup>Tsinghua University
+                    <br>
+                    <br>
+                     <h2 class="title">CVPR 2024</h2>
+                    <br>
+                    <!--<br>Conferance name and year</span>-->
+                    <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
+                  </div>
+
+
+    
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/STEM-Inv/stem-inv" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                &nbsp;&nbsp;
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2312.05856" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="publication-video">
+            <!-- Youtube embed code here -->
+            <iframe src="https://www.youtube.com/embed/FZnDn4wBPqY?si=g52FUcutAB7CEQv_" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+      <h2 class="subtitle has-text-centered">
+        We propose STEM inversion as an alternative approach to zero-shot video editing, which offers several advantages over the commonly employed DDIM inversion technique. STEM inversion achieves superior temporal consistency in video reconstruction while preserving intricate details. Moreover, it seamlessly integrates with contemporary video editing methods, such as TokenFlow [2] and FateZero [1], enhancing their editing capabilities.
+        We also provide qualitative comparison between different video editing methods: Tune-A-Video [3], Pix2Video [4], Text2Video-Zero [5]. We recommend using 1080P to watch video editing results.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            This paper presents a video inversion approach for zero-shot video editing, which aims to model the input video with low-rank representation during the inversion process. The existing video editing methods usually apply the typical 2D DDIM inversion or naive spatial-temporal DDIM inversion before editing, which leverages time-varying representation for each frame to derive noisy latent. Unlike most existing approaches, we propose a Spatial-Temporal Expectation-Maximization (STEM) inversion, which formulates the dense video feature under an expectation-maximization manner and iteratively estimates a more compact basis set to represent the whole video. Each frame applies the fixed and global representation for inversion, which is more friendly for temporal consistency during reconstruction and editing. Extensive qualitative and quantitative experiments demonstrate that our STEM inversion can achieve consistent improvement on two state-of-the-art video editing methods.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <p>
+    We argue that frames over a larger range should be considered to execute DDIM inversion. However, using all video frames directly will bring unacceptable complexity. To deal with this, we propose a <b>S</b>patial-<b>T</b>emporal <b>E</b>xpectation-<b>M</b>aximization (STEM) inversion method. The insight behind this is massive intra-frame and inter-frame redundancy lie in a video, thus there is no need to treat every pixel in the video as reconstruction bases. Then, we use the EM algorithm to find a more compact basis set (e.g., 256 bases) for the input video.
+          </p>
+           <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/STEM_DDIM_inv.png" alt="MY ALT TEXT"/>
+        </p> 
+          The illustration of the proposed STEM inversion. We estimate a more compact representation (bases $\mu$) for the input video via the EM algorithm. The ST-E step and ST-M step are executed alternately for R times until convergence. The Self-attention (SA) in our STEM inversion are denoted as STEM-SA, where the $\rm{Key}$ and $\rm{Value}$ embeddings are derived by projections of the converged $\mu$.
+        </p>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+
+
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Reconstruction Comparison</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/11.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <!-- Your video file here -->
+            <source src="static/videos/22.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/33.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+          <div class="item item-video4">
+          <video poster="" id="video4" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/44.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video5">
+          <video poster="" id="video5" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/55.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video6">
+          <video poster="" id="video6" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/66.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video7">
+          <video poster="" id="video7" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/77.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video8">
+          <video poster="" id="video8" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/88.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video9">
+          <video poster="" id="video9" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/99.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End video carousel -->
+
+
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Feature visualization</h2>
+        <div class="content has-text-justified">
+           <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/http-1.png" alt="MY ALT TEXT"/>
+        </p> 
+          Left: we first estimate the optical flow of the input sequence. Then, we apply PCA on the output features of the last SA layer from the UNet decoder. The 4-th column shows the feature visualization when we use optical flow to warp the former-frame features. Last, we give the cosine similarity of the warped features and the target ones. Here, the brighter, the better.
+          Right: we provide the mean cosine similarity across different time steps. The higher similarity
+indicates that our STEM inversion can achieve better temporal consistency from the perspective of optical flow.
+        </p>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>
+        @article{stem-inv,
+        title = {A Video is Worth 256 Bases: Spatial-Temporal Expectation-Maximization Inversion for Zero-Shot Video Editing},
+        author = {Maomao Li, Yu Li, Tianyu Yang, Yunfei Liu, Dongxu Yue, Zhihui Lin, and Dong Xu},
+        journal={arXiv preprint arxiv:2312.05856},
+        year={2023}
+        }
+      </code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+
+<!--BibTex citation -->
+  <section class="section" id="Reference">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Reference</h2>
+      <!--<pre><code>-->
+      <p>[1] Chenyang Qi, Xiaodong Cun, Yong Zhang, Chenyang Lei, Xintao Wang, Ying Shan, and Qifeng Chen. Fatezero: Fusing attentions for zero-shot text-based video editing. ICCV, 2023. 
+      <br />
+      [2] Michal Geyer, Omer Bar-Tal, Shai Bagon, and Tali Dekel. Tokenflow: Consistent diffusion features for consistent video editing.
+      <br />
+      [3] Jay Zhangjie Wu, Yixiao Ge, Xintao Wang, Stan Weixian Lei, Yuchao Gu, Yufei Shi, Wynne Hsu, Ying Shan, Xiaohu Qie, and Mike Zheng Shou. Tune-a-video: One-shot tuning of image diffusion models for text-to-video generation. CVPR, 2023.
+      <br />
+      [4] Duygu Ceylan, Chun-Hao P Huang, and Niloy J Mitra. Pix2video: Video editing using image diffusion. ICCV, 2023. 
+      <br />
+      [5] Levon Khachatryan, Andranik Movsisyan, Vahram Tadevosyan, Roberto Henschel, Zhangyang Wang, Shant Navasardyan, and Humphrey Shi. Text2video-zero: Text-to-image diffusion models are zero-shot video generators. ICCV, 2023
+      </p> 
+      <!-- </code></pre>-->
+    </div>
+</section>
+<!--End BibTex citation -->
+
+      
+        
+      </div>
+    </div>
+  </section>
+<!--End paper poster -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
