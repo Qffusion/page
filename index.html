@@ -67,25 +67,25 @@
               <!-- Paper authors -->
               <span class="author-block">
                 <a href="https://scholar.google.com.hk/citations?hl=zh-CN&user=ym_t6QYAAAAJ" target="_blank">Maomao Li<sup>*</sup></a><sup></sup>,</span>
+                <span class="author-block">
+                <a href="https://scholar.google.com.hk/citations?user=Xf5_TfcAAAAJ&hl=zh-CN" target="_blank">Lijian Lin<sup>*</sup></a><sup></sup>,</span>
                   <span class="author-block">
-                    Lijian Lin<sup>*</sup><sup></sup>,</
-                  </span>  
-                  <span class="author-block">
-                    <a href="https://scholar.google.com/citations?user=B1Z1vTMAAAAJ&hl=zh-CN" target="_blank">Yunfei Liu</sup></a><sup></sup>,</
+                    <a href="https://scholar.google.com/citations?user=B1Z1vTMAAAAJ&hl=zh-CN" target="_blank">Yunfei Liu<sup>$\dagger$</sup></a><sup></sup>,</
                   </span> 
                   <span class="author-block">
-                    Ye Zhu</sup><sup></sup>,</
-                  </span>   
+                    <a href="https://scholar.google.com.hk/citations?hl=zh-CN&user=qhp9rIMAAAAJ" target="_blank">Ye Zhu<sup>$\dagger$</sup></a><sup></sup>,</
+                  </span>  
                  <span class="author-block">
-                  <a href="https://yu-li.github.io/" target="_blank">Yu Li<sup>2</sup></a><sup></sup>,</span>                               
+                  <a href="https://yu-li.github.io/" target="_blank">Yu Li<sup>$\dagger$</sup></a><sup></sup>,</span>                               
                   </div>
+                   <br>
 
                   <div class="is-size-5 publication-authors">
                     <span class="author-block"></sup>International Digital Economy Academy (IDEA)
                     &nbsp;&nbsp;
                     <br>
                      <br>
-                     <h2 class="title">Arxiv 2025</h2>
+                     <!-- <h2 class="title">TVCG 2025</h2> -->
                     <br>
                     <!--<br>Conferance name and year</span>-->
                     <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
@@ -95,8 +95,8 @@
     
 
                   <!-- Github link -->
-                  <span class="link-block">
-                    <a href="https://github.com/STEM-Inv/stem-inv" target="_blank"
+                 <!--  <span class="link-block">
+                    <a href="https://github.com/Qffusion/Qffusion" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -104,10 +104,10 @@
                     <span>Code</span>
                   </a>
                 </span>
-                &nbsp;&nbsp;
+                &nbsp;&nbsp; -->
                 <!-- ArXiv abstract Link -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/2312.05856" target="_blank"
+                  <a href="https://arxiv.org/abs/2501.06438" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
@@ -133,8 +133,7 @@
             <iframe src="https://www.youtube.com/embed/FZnDn4wBPqY?si=g52FUcutAB7CEQv_" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
       <h2 class="subtitle has-text-centered">
-        We propose STEM inversion as an alternative approach to zero-shot video editing, which offers several advantages over the commonly employed DDIM inversion technique. STEM inversion achieves superior temporal consistency in video reconstruction while preserving intricate details. Moreover, it seamlessly integrates with contemporary video editing methods, such as TokenFlow [2] and FateZero [1], enhancing their editing capabilities.
-        We also provide qualitative comparison between different video editing methods: Tune-A-Video [3], Pix2Video [4], Text2Video-Zero [5]. We recommend using 1080P to watch video editing results.
+       This paper presents Qffusion, a novel dual-frame-guided framework for portrait video editing. Specifically, we first specify editing requirements by modifying the start and end frames with professional software (such as Photoshop). Then, we use Qffusion to propagate the user-given fine-grained local modification (such as age, makeup, hair, style, and wearing sunglasses).
       </h2>
     </div>
   </div>
@@ -167,14 +166,11 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Method</h2>
         <div class="content has-text-justified">
-          <p>
-    We argue that frames over a larger range should be considered to execute DDIM inversion. However, using all video frames directly will bring unacceptable complexity. To deal with this, we propose a <b>S</b>patial-<b>T</b>emporal <b>E</b>xpectation-<b>M</b>aximization (STEM) inversion method. The insight behind this is massive intra-frame and inter-frame redundancy lie in a video, thus there is no need to treat every pixel in the video as reconstruction bases. Then, we use the EM algorithm to find a more compact basis set (e.g., 256 bases) for the input video.
-          </p>
            <div class="item">
         <!-- Your image here -->
-        <img src="static/images/STEM_DDIM_inv.png" alt="MY ALT TEXT"/>
+        <img src="static/images/overview_v4.png" alt="MY ALT TEXT"/>
         </p> 
-          The illustration of the proposed STEM inversion. We estimate a more compact representation (bases $\mu$) for the input video via the EM algorithm. The ST-E step and ST-M step are executed alternately for R times until convergence. The Self-attention (SA) in our STEM inversion are denoted as STEM-SA, where the $\rm{Key}$ and $\rm{Value}$ embeddings are derived by projections of the converged $\mu$.
+          Overview illustration of Qffusion. As for training, we first design a Quadrant-grid Arrangement (QGA) scheme for latent re-arrangement, which arranges the latent codes of two reference images and that of four portrait landmarks into a four-grid fashion, separately.  Then, we fuse features of these two modalities and use self-attention for both appearance and temporal learning. Here, the facial identity features [1] are also put into cross-attention mechanism in the denoising U-Net for further identity constraint. During inference, a stable video is generated via our proposed Quadrant-grid Propagation (QGP) strategy.
         </p>
       </div>
         </div>
@@ -192,73 +188,34 @@
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Reconstruction Comparison</h2>
+      <h2 class="title is-3">Portrait Video Editing</h2>
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-video1">
           <video poster="" id="video1" autoplay controls muted loop height="100%">
             <!-- Your video file here -->
-            <source src="static/videos/11.mp4"
+            <source src="static/videos/1.mp4"
             type="video/mp4">
           </video>
         </div>
         <div class="item item-video2">
           <video poster="" id="video2" autoplay controls muted loop height="100%">
             <!-- Your video file here -->
-            <source src="static/videos/22.mp4"
+            <source src="static/videos/2.mp4"
             type="video/mp4">
           </video>
         </div>
         <div class="item item-video3">
           <video poster="" id="video3" autoplay controls muted loop height="100%">\
             <!-- Your video file here -->
-            <source src="static/videos/33.mp4"
+            <source src="static/videos/3.mp4"
             type="video/mp4">
           </video>
-        </div>
-          <div class="item item-video4">
-          <video poster="" id="video4" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/44.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video5">
-          <video poster="" id="video5" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/55.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video6">
-          <video poster="" id="video6" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/66.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video7">
-          <video poster="" id="video7" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/77.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video8">
-          <video poster="" id="video8" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/88.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video9">
-          <video poster="" id="video9" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/99.mp4"
-            type="video/mp4">
-          </video>
-        </div>
+        </div>   
       </div>
-    </div>
+          </p> 
+          We compare Qffusion with four recent video editing methods: TokenFlow [2], Rerender-A-Video [3], Codef [4] and AnyV2V [5] on portrait video editing. Besides, we provide animation results from ControlNext-SVD [6]. Note that our method requires both modified start and end frames ($\mathbf{I}^s$ and $\mathbf{I}^e$) as editing signals, where $\mathbf{I}^e$ is omitted here for simplicity.
+        </p> 
+    </div> 
   </div>
 </section>
 <!-- End video carousel -->
@@ -266,38 +223,16 @@
 
 
 
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Feature visualization</h2>
-        <div class="content has-text-justified">
-           <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/http-1.png" alt="MY ALT TEXT"/>
-        </p> 
-          Left: we first estimate the optical flow of the input sequence. Then, we apply PCA on the output features of the last SA layer from the UNet decoder. The 4-th column shows the feature visualization when we use optical flow to warp the former-frame features. Last, we give the cosine similarity of the warped features and the target ones. Here, the brighter, the better.
-          Right: we provide the mean cosine similarity across different time steps. The higher similarity
-indicates that our STEM inversion can achieve better temporal consistency from the perspective of optical flow.
-        </p>
-      </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
-
-
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code>
-        @article{stem-inv,
-        title = {A Video is Worth 256 Bases: Spatial-Temporal Expectation-Maximization Inversion for Zero-Shot Video Editing},
-        author = {Maomao Li, Yu Li, Tianyu Yang, Yunfei Liu, Dongxu Yue, Zhihui Lin, and Dong Xu},
-        journal={arXiv preprint arxiv:2312.05856},
-        year={2023}
+        @article{qffusion,
+        title = {Qffusion: Controllable Portrait Video Editing via Quadrant-Grid Attention Learning},
+        author = {Maomao Li, Lijian Lin, Yunfei Liu, Ye Zhu, Yu Li},
+        journal={arXiv preprint arXiv:2501.06438},
+        year={2025}
         }
       </code></pre>
     </div>
@@ -311,15 +246,17 @@ indicates that our STEM inversion can achieve better temporal consistency from t
     <div class="container is-max-desktop content">
       <h2 class="title">Reference</h2>
       <!--<pre><code>-->
-      <p>[1] Chenyang Qi, Xiaodong Cun, Yong Zhang, Chenyang Lei, Xintao Wang, Ying Shan, and Qifeng Chen. Fatezero: Fusing attentions for zero-shot text-based video editing. ICCV, 2023. 
+      <p> [1] J. Deng, J. Guo, N. Xue, and S. Zafeiriou, “Arcface: Additive angular margin loss for deep face recognition,” in CVPR, 2019, pp. 4690–4699.
       <br />
       [2] Michal Geyer, Omer Bar-Tal, Shai Bagon, and Tali Dekel. Tokenflow: Consistent diffusion features for consistent video editing.
       <br />
-      [3] Jay Zhangjie Wu, Yixiao Ge, Xintao Wang, Stan Weixian Lei, Yuchao Gu, Yufei Shi, Wynne Hsu, Ying Shan, Xiaohu Qie, and Mike Zheng Shou. Tune-a-video: One-shot tuning of image diffusion models for text-to-video generation. CVPR, 2023.
+      [3] S. Yang, Y. Zhou, Z. Liu, and C. C. Loy, “Rerender a video: Zero-shot text-guided video-to-video translation,” in SIGGRAPH Asia 2023 Conference Papers, 2023.
       <br />
-      [4] Duygu Ceylan, Chun-Hao P Huang, and Niloy J Mitra. Pix2video: Video editing using image diffusion. ICCV, 2023. 
+      [4] H. Ouyang, Q. Wang, Y. Xiao, Q. Bai, J. Zhang, K. Zheng, X. Zhou, Q. Chen, and Y. Shen, “Codef: Content deformation fields for temporally consistent video processing,” CVPR, 2024.
       <br />
-      [5] Levon Khachatryan, Andranik Movsisyan, Vahram Tadevosyan, Roberto Henschel, Zhangyang Wang, Shant Navasardyan, and Humphrey Shi. Text2video-zero: Text-to-image diffusion models are zero-shot video generators. ICCV, 2023
+      [5] M. Ku, C. Wei, W. Ren, H. Yang, and W. Chen, “Anyv2v: A plug-and-play framework for any video-to-video editing tasks,” TMLR, 2024.
+      <br />
+      [6] B. Peng, J. Wang, Y. Zhang, W. Li, M.-C. Yang, and J. Jia, “Controlnext: Powerful and efficient control for image and video generation,” arXiv preprint arXiv:2408.06070, 2024.
       </p> 
       <!-- </code></pre>-->
     </div>
